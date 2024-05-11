@@ -63,18 +63,6 @@ public function panel(Panel $panel): Panel
 }
 ```
 
-## Testing
-
-Todo: Write tests
-
-```bash
-composer test
-```
-
-## Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
 ## Contributing
 
 Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for details.
