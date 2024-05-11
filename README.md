@@ -35,6 +35,16 @@ php artisan vendor:publish --tag="filament-login-multiauth-migrations"
 php artisan migrate
 ```
 
+If you want to generate username by email, you can run command:
+
+```bash
+php artisan generate:username --all-user=true
+
+or 
+
+php artisan generate:username your-email@email.com
+```
+
 ## Usage
 
 Register the `Minhk\FilamentLoginMultiauth\FilamentLoginMultiauthServiceProvider` plugin in the panel provider
