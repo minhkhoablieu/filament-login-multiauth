@@ -1,8 +1,10 @@
-# Login With Email Or Username (In One Field)
+<p align="center"><img src="./art/banner.png" alt="Filament Login MultiAuth"></p>
+
+# Filament Login MultiAuth
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/minhk/filament-login-multiauth.svg?style=flat-square)](https://packagist.org/packages/minhk/filament-login-multiauth)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+Login With Email Or Username (In One Field)
 
 ## Installation
 
