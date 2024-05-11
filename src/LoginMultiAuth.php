@@ -13,16 +13,15 @@ class LoginMultiAuth
 
     public function generateUsername($email): string
     {
-        $data = explode('@', $email);
-        $username = $data[0];
+        $username = $this->extractUsernameFromEmail($email);
 
-        if ($this->CheckUsernameAlreadyExists($username)) {
-            $username = $username . $data[1];
+        if ($this->checkUsernameAlreadyExists($username)) {
+            $username = $username . $this->extractDomainFromEmail($email);
         }
         return $username;
     }
 
-    public function CheckUsernameAlreadyExists($username): bool
+    public function checkUsernameAlreadyExists($username): bool
     {
         $username_column = config('filament-login-multiauth.username_column');
         $userModel = config('filament-login-multiauth.model');
@@ -30,5 +29,15 @@ class LoginMultiAuth
             ->where($username_column, $username)
             ->first();
         return (bool)$user;
+    }
+
+    public function extractUsernameFromEmail($email): string
+    {
+        return explode('@', $email)[0];
+    }
+
+    public function extractDomainFromEmail($email): string
+    {
+        return explode('@', $email)[1];
     }
 }
