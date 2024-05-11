@@ -1,0 +1,26 @@
+{
+    "name": "minhk/filament-login-multiauth",
+    "description": "Login With Email Or Username (In One Field)",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Minhk\\FilamentLoginMultiAuth\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Khoa Phung",
+            "email": "minhkhoablieu@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Minhk\\FilamentLoginMultiAuth\\FilamentLoginMultiAuthServiceProvider"
+            ]
+        }
+    }
+}

@@ -1,0 +1,29 @@
+<?php
+
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration {
+
+    public function up(): void
+    {
+        $table_name = config('filament-login-multiauth.table_name');
+        $username_column = config('filament-login-multiauth.username_column');
+
+        Schema::table($table_name, function (Blueprint $table) use ($username_column) {
+            $table->string($username_column)->unique()->nullable();
+        });
+    }
+
+    public function down(): void
+    {
+        $table_name = config('filament-login-multiauth.table_name');
+        $username_column = config('filament-login-multiauth.username_column');
+
+        Schema::table($table_name, function (Blueprint $table) use ($username_column) {
+            $table->dropColumn($username_column);
+        });
+    }
+};
