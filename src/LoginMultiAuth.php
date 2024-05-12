@@ -2,6 +2,8 @@
 
 namespace Minhk\FilamentLoginMultiAuth;
 
+use Illuminate\Support\Str;
+
 class LoginMultiAuth
 {
     public function getUsernameColumn($username): string
@@ -25,19 +27,19 @@ class LoginMultiAuth
     {
         $username_column = config('filament-login-multiauth.username_column');
         $userModel = config('filament-login-multiauth.model');
-        $user = $userModel::query()
+
+        return $userModel::query()
             ->where($username_column, $username)
-            ->first();
-        return (bool)$user;
+            ->exists();
     }
 
     public function extractUsernameFromEmail($email): string
     {
-        return explode('@', $email)[0];
+        return Str::before($email, '@');
     }
 
     public function extractDomainFromEmail($email): string
     {
-        return explode('@', $email)[1];
+        return Str::after($email, '@');
     }
 }
